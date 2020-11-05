@@ -1,0 +1,37 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Payment</title>
+
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:400,400i,700" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" type="text/css" />
+
+  </head>
+
+  <body>
+
+    <form action="form.php" method="post">
+        <p>
+            <label for="patientID">Patient ID:</label>
+            <input type="text" name="patientID" id="patientID">
+        </p>
+        <p>
+            <label for="totalDue">Total Due:</label>
+            <input type="text" name="totalDue" id="totalDue">
+        </p>
+        <p>
+            <label for="newPayment">New Payment:</label>
+            <input type="text" name="newPayment" id="newPayment">
+        </p>
+        <a class="buttons" href=" ">Ok</a>
+        <a class="buttons" href=" ">Cancel</a>
+        <a class="buttons" href=" ">Update</a>
+        
+    </form>
+
+  </body>
+</html>
