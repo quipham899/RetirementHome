@@ -2,9 +2,29 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:400,400i,700" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" type="text/css" />
+
   </head>
+
   <body>
+
+    <form action="form.php" method="post">
+        <p>
+            <label for="logIn">Log in:</label>
+            <input type="text" name="logIn" id="logIn">
+        </p>
+        <p>
+            <label for="register">Register:</label>
+            <input type="text" name="register" id="register">
+        </p>
+
+    </form>
 
   </body>
 </html>
