@@ -12,8 +12,11 @@ $DOB = $_POST['DOB'];
 $Phone = $_POST['phone'];
 $Role = $_POST['Role'];
 
-$sql = "INSERT INTO Accounts( firstName, lastName, email, password, DOB, phone, role) VALUES(
-  '$first_name', ' $last_name', '$email', '$password', '$DOB', '$Phone','$Role')";
+$sql = "INSERT INTO Accounts( firstName, lastName, email, password, DOB, phone, role, approved, salary) VALUES(
+  '$first_name', ' $last_name', '$email', '$password', '$DOB', '$Phone','$Role', 'False', 0)";
+//if(mysqli_query("SELECT * FROM Role WHERE roleName == '$Role'")){
+
+//}
 if (mysqli_query($link, $sql)) {
     mysqli_close($link);
     header("Location:/PHProject/retirementHome/templates/login.html");

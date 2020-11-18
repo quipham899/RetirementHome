@@ -12,7 +12,10 @@ if ($link === false) {
 if ($result = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($result) > 0) {
       $row = mysqli_fetch_array($result);
-      setcookie("person", $row['id'], time() + 3600, "/", "", 0);
+      session_start();
+      $_SESSION['Id'] = $row['id'];
+      $_SESSION['role'] = $row['role'];
+      session_write_close();
       if($row['role'] == 'doctor'){
       header("Location:/PHProject/retirementHome/templates/doctorshome.html");
     } else if($row['role'] == 'patient'){
