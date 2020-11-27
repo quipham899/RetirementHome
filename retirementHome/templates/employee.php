@@ -1,5 +1,5 @@
 <?php
-include '../PHPFile/EmployeeManagement.php'
+include '../PHPFiles/EmployeeManagement.php'
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -17,24 +17,40 @@ include '../PHPFile/EmployeeManagement.php'
 
   <body>
 
-    <form action="form.php" method="post">
+    <form method="post">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>role</th>
+          <th>Salary</th>
+          <?php
+          if(!empty(mysqli_query($link,$sql))){
+            $result = mysqli_query($link,$sql);
+            while($row = mysqli_fetch_array($result)){
+              echo "<tr>";
+              echo "<td>" . $row['id'] . "</td>";
+              echo "<td>" . $row['firstName'], $row['lastName'] . "</td>";
+              echo "<td>" . $row['roleName'] . "</td>";
+              if($row['salary'] != Null){
+              echo "<td>" . $row['salary']. "</td>";
+            } else{
+              echo "<td> 0 </td>";
+            }
+              echo "</tr>";
+            }
+          }
+          ?>
+      </table>
       <p>
-          <label for="empId">Emp ID:</label>
-      </p>
-      <p>
-          <label for="Name">Name:</label>
-      </p>
-      <p>
-          <label for="empId">Role:</label>
-      </p>
-      <p>
-          <label for="empId">Salary:</label>
+          <label for="id">Employee-ID:</label>
+          <input type="text" name="empID" id="newSalary">
       </p>
       <p>
           <label for="newSalary">New Salary:</label>
-          <input type="text" name="newSalary" id="newSalary">
+          <input type="number" name="newSalary" id="newSalary" step=".01" />
       </p>
-      <a class="buttons" href=" ">Ok</a>
+      <input type="submit">Submit</input>
       <a class="buttons" href=" ">Cancel</a>
 
   </form>

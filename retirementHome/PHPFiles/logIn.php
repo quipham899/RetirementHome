@@ -1,5 +1,5 @@
 <<?php
-$link = mysqli_connect("localhost", "root", "", "Users");
+$link = mysqli_connect("localhost", "root", "", "Data");
 
 if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());
@@ -15,17 +15,18 @@ if ($result = mysqli_query($link, $sql)) {
       session_start();
       $_SESSION['Id'] = $row['id'];
       $_SESSION['role'] = $row['role'];
+      $_SESSION['approved'] = $row['approved'];
       session_write_close();
-      if($row['role'] == 'doctor'){
-      header("Location:/PHProject/retirementHome/templates/doctorshome.html");
-    } else if($row['role'] == 'patient'){
-        header("Location:/PHProject/retirementHome/templates/patientHome.html");
-    } else if($row['role'] == 'family'){
+      if($row['role'] == 'C'){
+      header("Location:/PHProject/retirementHome/templates/doctorsHome.php");
+    } else if($row['role'] == 'F'){
+        header("Location:/PHProject/retirementHome/templates/patientHome.php");
+    } else if($row['role'] == 'G'){
       header('Location:/PHProject/retirementHome/templates/familyMembersHome.html');
-    } else if($row['role'] == 'caregiver'){
-      header('Location:/PHProject/retirementHome/templates/caregiversHome.html');
-    } else if($row['role'] == 'supervisor'){
-      header('Location:/PHProject/retirementHome/templates/patientHome.html');
+    } else if($row['role'] == 'D'){
+      header('Location:/PHProject/retirementHome/templates/caregiversHome.php');
+    } else if($row['role'] == 'B' or $row['role'] == 'A'){
+      header('Location:/PHProject/retirementHome/templates/adminsReport.php');
     }
   }
 }

@@ -98,6 +98,10 @@ include '../PHPFiles/RosterManagement.php'
         ?>
       </select>
       </p>
+      <p>
+        <label for="group">Group:</label>
+        <input type='text' name='group'></input>
+    </p>
       <input type=submit name='rosterSubmit'/>
        <a class="buttons" href=" ">Cancel</a>
 

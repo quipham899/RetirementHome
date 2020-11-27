@@ -1,3 +1,6 @@
+<?php
+include '../PHPFiles/Payment.php'
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,22 +17,32 @@
 
   <body>
 
-    <form action="form.php" method="post">
+    <form method="post">
         <p>
             <label for="patientID">Patient ID:</label>
             <input type="text" name="patientID" id="patientID">
         </p>
         <p>
             <label for="totalDue">Total Due:</label>
-            <input type="text" name="totalDue" id="totalDue">
+            <?php
+            if(gettype($totalDay) != NULL){
+              echo '<label>' . '$'.$totalPrice .'.00'. '</label>';
+            } else {
+              echo "None";
+            }
+            ?>
         </p>
         <p>
             <label for="newPayment">New Payment:</label>
-            <input type="text" name="newPayment" id="newPayment">
+            <?php
+            if(isset($totalPrice)){
+              echo '<label>' . '$'.$totalPrice .'.00'. '</label>';
+            }
+            ?>
         </p>
-        <a class="buttons" href=" ">Ok</a>
+        <input type="submit" name='paymentSub'></input>
         <a class="buttons" href=" ">Cancel</a>
-        <a class="buttons" href=" ">Update</a>
+        <input type='submit' name='updateButton'></input>
 
     </form>
 

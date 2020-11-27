@@ -4,14 +4,38 @@
     <meta charset="utf-8">
     <title> Login Page</title>
     <link href = "styles.css" rel= "stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script type='text/javascript'>window.onload=function(){
+      const patient = document.getElementById('patientId');
+      patient.addEventListener('change', function(){
+        var input = this.value;
+        var name = document.getElementById('patientName');
+        $.ajax({
+              url:"../PHPFiles/Doc.php",    //the page containing php script
+              type: "post",    //request type,
+              dataType: 'json',
+              data: {patientNum: input},
+              success:function(result){
+                if(result != null) {
+                document.getElementById('patientName').innerHTML = '';
+                console.log(result)
+                document.getElementById('patientName').appendChild(document.createTextNode(result[3]));
+                document.getElementById('patientName').appendChild(document.createTextNode(result[4]));
+              }
+          }
+        });
+      });
+    }
+    </script>
   </head>
 
   <body>
 
-    <form action="form.php" method="post">
+    <form action='../PHPFiles/AddInfo.php' method="post">
         <p>
             <label for="patientId">Patient Id:</label>
-            <input type="text" name="patient" id="patientId">
+            <input type="text" name="patientId" id="patientId">
         </p>
         <p>
             <label for="group">Group:</label>
@@ -19,13 +43,13 @@
         </p>
         <p>
             <label for="admissionDate">Admission Date:</label>
-            <input type="text" name="admissionDate" id="admissionDate">
+            <input type="date" name="admissionDate" id="admissionDate">
         </p>
         <p>
             <label for="patientName">Patient Name:</label>
-            <input type="text" name="patientName" id="patientName">
+            <text id='patientName'></text>
         </p>
-        <a class="buttons" href=" ">Ok</a>
+        <input type="Submit" name="InfoSubmit" />
         <a class="buttons" href=" ">Cancel</a>
 
     </form>

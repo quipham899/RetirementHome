@@ -1,12 +1,11 @@
 <?php
-include '../PHPFiles/Doc.php'
+include '../PHPFiles/rosterView.PHP'
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title> Doctor's Appointments</title>
-    <link href = "styles.css" rel= "stylesheet">
+    <title></title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type='text/javascript'>window.onload=function(){
       const patient = document.getElementById('patientId');
@@ -50,27 +49,7 @@ include '../PHPFiles/Doc.php'
   }
     </script>
   </head>
-
   <body>
 
-    <form action="docApp.php" method="post">
-        <p>
-            <label for="patient">Patient Id:</label>
-            <input type="text" name="patient" id="patientId" />
-        </p>
-        <p>
-            <label for="date">Date:</label>
-            <input type="date" name="date" id="date">
-        </p>
-        <select name='doctor' id='doctor'>
-        </select>
-        <p>
-            <label for="patientName">Patient Name:</label>
-            <text id='patient'></text>
-        </p>
-        <input type="submit" name="ok" id="ok">
-          <a class="buttons" href=" ">Cancel</a>
-
-    </form>
   </body>
 </html>

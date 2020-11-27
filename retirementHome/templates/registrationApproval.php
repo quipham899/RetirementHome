@@ -18,13 +18,22 @@ include '../PHPFiles/RegApproval.php'
    <body>
 
      <form method="post">
+       <table>
+         <tr>
+           <th>Name</th>
+           <th>Role</th>
+           <th>Check</th>
+         </tr>
          <?php
          if ($result = mysqli_query($link, $sql)) {
-             if (mysqli_num_rows($result) > 0) {
+           print_r($result);
+             if (!$result || mysqli_num_rows($result) > 0) {
                while($row = mysqli_fetch_array($result)){
-                 echo "<label>". $row['firstName']."</label>";
-                 echo "<label>". $row['role']. "</label>";
-                 echo "<input type='checkbox' name='userValue[]' value='{$row["id"]}'>";
+                 echo "<tr>";
+                 echo "<th>". $row['firstName'], $row['lastName']."</th>";
+                 echo "<th>". $row['roleName']. "</th>";
+                 echo "<th><input type='checkbox' name='userValue[]' value='{$row["id"]}'></th>";
+                 echo "</tr>";
                }
 
              } else {
@@ -32,6 +41,7 @@ include '../PHPFiles/RegApproval.php'
              }
            }
          ?>
+       </table>
          <input type="submit" name="regApprove" id="register">
      </form>
 
