@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS Patient;
 DROP TABLE IF EXISTS Doctor;
 DROP TABLE IF EXISTS Caregiver;
 DROP TABLE IF EXISTS Medication;
+DROP TABLE IF EXISTS Meals;
 
 CREATE TABLE `Accounts` (
   `id` serial PRIMARY KEY,
@@ -25,6 +26,7 @@ CREATE TABLE `Patient` (
   `Name` TEXT UNIQUE NOT NULL,
   `Relation` TEXT NOT NULL,
   `Group` TEXT NOT NULL,
+  `Date` DATE,
   `AdmissionDate` DATE NOT NULL
 );
 
@@ -33,7 +35,8 @@ CREATE TABLE `Doctor` (
   `Appointments` DATE,
   `PatientID` bigint Accounts(id) ON DELETE CASCADE,
   `Patient` text REFERENCES Patient(Name) ,
-  `Comment` TEXT
+  `Comment` TEXT,
+  `Name` TEXT NOT NULL
 );
 
 CREATE TABLE `Caregiver` (
@@ -46,4 +49,10 @@ CREATE TABLE `Medication` (
   `MornMed` TEXT,
   `AfternoonMed` TEXT,
   `NightMed` TEXT
+);
+CREATE TABLE 'Meals' (
+  `PatientID` bigint REFERENCES Accounts(id) ON DELETE CASCADE,
+  `Breakfast` TEXT,
+  `Lunch` TEXT,
+  `Dinner` TEXT
 );

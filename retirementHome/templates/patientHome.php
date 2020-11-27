@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
 
   <body>
 
-    <form action="form.php" method="post">
+    <form action="../PHPFiles/patientHome.php" method="post">
       <p>
           <label for="patientId">PatientID:</label>
           <input type="text" name="patientId" id="patientId">
@@ -27,10 +27,9 @@
           <label for="patientName">Patient Name:</label>
           <input type="text" name="patientName" id="patientName">
       </p>
-      <a class="buttons" href=" ">Ok</a>
-      <a class="buttons" href=" ">Cancel</a>
-      
-    </form>
+        <input type="submit" name = "PatientHome" value="submit">
 
+    </form>
+    <?php include '../PHPFiles/patientHome.php';?>
   </body>
 </html>

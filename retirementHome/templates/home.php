@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:400,400i,700" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" type="text/css" />
+
+    <div class="topnav">
+      <a class="active" href="../templates/login.html">Log In</a>
+      <a href="../templates/signUp.html">Register</a>
+      <a href="../templates/roster.html">Roaster</a>
+      <a href="../templates/">About</a>
+    </div>
 
   </head>
 
