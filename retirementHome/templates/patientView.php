@@ -12,7 +12,8 @@ include '../PHPFiles/patientSearch.php'
   <table>
     <tr>
       <th>ID</th>
-      <th>Name</th>
+      <th>First-Name</th>
+      <th>Last-Name</th>
       <th>Emergency Contact</th>
       <th>Admission Date</th>
     </tr>
@@ -24,7 +25,8 @@ include '../PHPFiles/patientSearch.php'
     while($get = mysqli_fetch_array($result)){
       echo "<tr>";
       echo "<th>" . $get['id'] . "</th>";
-      echo "<th>" . $get['firstName'], $get['lastName'] . "</th>";
+      echo "<th>" . $get['firstName']. "</th>";
+      echo "<th>" . $get['lastName']. "</th>";
       echo "<th>" . $get['EmergencyContact'] . "</th>";
       echo "<th>" . $get['AdmissionDate'] . "</th>";
       echo "</tr>";

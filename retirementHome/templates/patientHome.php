@@ -14,7 +14,28 @@ include '../PHPFiles/PatientHome.php'
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:400,400i,700" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
+    <script type='text/javascript'>window.onload=function(){
+      const patient = document.getElementById('patientId');
+      patient.addEventListener('change', function(){
+        var input = this.value;
+        var name = document.getElementById('patientName');
+        $.ajax({
+              url:"../PHPFiles/Doc.php",    //the page containing php script
+              type: "post",    //request type,
+              dataType: 'json',
+              data: {patientNum: input},
+              success:function(result){
+                if(result != null) {
+                document.getElementById('patientName').innerHTML = '';
+                console.log(result)
+                document.getElementById('patientName').appendChild(document.createTextNode(result[3]));
+                document.getElementById('patientName').appendChild(document.createTextNode(result[4]));
+              }
+          }
+        });
+      });
+    }
+    </script>
   </head>
 
   <body>
@@ -33,6 +54,9 @@ include '../PHPFiles/PatientHome.php'
         }
         ?>
       </table>
+      <label name='PID' />
+      <input type ='date' />
+      <label name = 'PName'/>
       <a class="buttons" href=" ">Ok</a>
       <a class="buttons" href=" ">Cancel</a>
 

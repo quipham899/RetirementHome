@@ -27,6 +27,8 @@ if(isset($_POST['subInfo'])){
   $search = "SELECT * FROM Patient LEFT JOIN Accounts ON Patient.id=Accounts.id WHERE {$query} ";
   if(mysqli_query($link, $search)){
     echo "Work";
+    $res = mysqli_query($link, $search);
+    print_r(mysqli_num_rows($res));
   } else{
     echo "Didn't work .$search" .  mysqli_error($link);
   }
