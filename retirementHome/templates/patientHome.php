@@ -20,7 +20,7 @@ include '../PHPFiles/PatientHome.php'
         var input = this.value;
         var name = document.getElementById('patientName');
         $.ajax({
-              url:"../PHPFiles/Doc.php",    //the page containing php script
+              url:"../PHPFiles/PatientHome.php",    //the page containing php script
               type: "post",    //request type,
               dataType: 'json',
               data: {patientNum: input},
@@ -55,8 +55,10 @@ include '../PHPFiles/PatientHome.php'
         ?>
       </table>
       <label name='PID' />
+      <input type='text' name='patientId' />
       <input type ='date' />
-      <label name = 'PName'/>
+      <label name = 'PName'>Patient Name</label>
+      <label name='PatietnName' />
       <a class="buttons" href=" ">Ok</a>
       <a class="buttons" href=" ">Cancel</a>
 

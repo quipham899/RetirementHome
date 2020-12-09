@@ -19,10 +19,10 @@ if(isset($_POST['subInfo'])){
 
   $check = array();
   if($id != "") $check[] = "Patient.id = {$id}";
-  if($firstName != "") $check[] = "firstName = '{$firstName}'";
-  if($lastName != "") $check[] = "lastName = '{$lastName}'";
-  if($EContact != "") $check[] = "EmergencyContact = '{$EContact}'";
-  if($Admission != "") $check[] = "AdmissionDate = '{$Admission}'";
+  if($firstName != "") $check[] = "Accounts.firstName = '{$firstName}'";
+  if($lastName != "") $check[] = "Accounts.lastName = '{$lastName}'";
+  if($EContact != "") $check[] = "Patient.EmergencyContact = '{$EContact}'";
+  if($Admission != "") $check[] = "Patient.AdmissionDate = '{$Admission}'";
   $query = implode(" AND ", $check);
   $search = "SELECT * FROM Patient LEFT JOIN Accounts ON Patient.id=Accounts.id WHERE {$query} ";
   if(mysqli_query($link, $search)){
