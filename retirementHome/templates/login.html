@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title> Login Page</title>
-    <link href = "styles.css" rel= "stylesheet">
+    <link rel="stylesheet" href="../static/styles.css">
   </head>
 
   <body>
-
+<div class="login">
+  <h2>Login Here</h2>
     <form action="../PHPFiles/logIn.php" method="post">
         <p>
             <label for="email">email:</label>
@@ -17,10 +18,10 @@
             <label for="password">password:</label>
             <input type="text" name="password" id="password">
         </p>
-        <input type="submit" name= "logIn" value="submit">
-        <input type="submit" value="Cancel">
+        <input class="submit" type="submit" name= "logIn" value="submit">
+        <input class="cancel" type="submit" value="Cancel">
 
     </form>
-
+</div>
   </body>
 </html>

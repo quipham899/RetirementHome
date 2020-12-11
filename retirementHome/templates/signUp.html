@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="../static/styles.css">
   </head>
   <body>
+  <div class="register">
+    <h1>Register Here</h1>
   <form class="register_page" action="../PHPFiles/register.php" method="post">
-    <div>
       <text>First_Name</text>
        <input type="text" name="first_name" id="firstName"></input>
        <text>Last_Name</text>
@@ -21,8 +23,9 @@
       <input type="text" name="DOB" id="DOB"></input>
       <text>Role</text>
      <input type="text" name="Role" id="Role"></input>
-    </div>
-      <input type="submit" name = "Register" value="submit">
+
+      <input class="submit" type="submit" name = "Register" value="submit">
   </form>
+</div>
   </body>
 </html>

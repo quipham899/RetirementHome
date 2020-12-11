@@ -1,0 +1,41 @@
+html {
+    background-color: darkolivegreen;
+    margin: 0px;
+    padding: 0rem;
+}
+/* register page  css */
+input, form {
+    display: block;
+    width: 60%;
+    padding: 0.5rem;
+    color: blue;
+}
+
+text {
+    padding: 10px;
+}
+.register, .login, .home  {
+
+    margin-left: 30%;
+}
+.submit {
+    background-color: darkcyan;
+}
+/* login page css */
+.cancel {
+    background-color: darkred;
+}
+
+.patientInfo {
+    margin-left: 30%;
+}
+.buttons {
+    display: block;
+    background-color: darksalmon;
+    width: 70px;
+}
+
+.pyment {
+    margin-left: 30%; 
+
+}

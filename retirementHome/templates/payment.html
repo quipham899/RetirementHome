@@ -8,12 +8,13 @@
 
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:400,400i,700" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" type="text/css" />
+    <link rel="stylesheet" href="../static/styles.css">
 
   </head>
 
   <body>
-
+<div class="pyment">
+  <h1>Payment</h1>
     <form action="form.php" method="post">
         <p>
             <label for="patientID">Patient ID:</label>
@@ -32,6 +33,6 @@
         <a class="buttons" href=" ">Update</a>
         
     </form>
-
+</div>
   </body>
 </html>

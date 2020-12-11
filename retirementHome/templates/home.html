@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:400,400i,700" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" type="text/css" />
+    <link rel="stylesheet" href="../static/styles.css">
 
   </head>
 
   <body>
-
+<div class="home">
     <form action="../PHPFiles/logIn.php" method="post">
         <p>
             <label for="logIn">Log in:</label>
@@ -26,6 +27,6 @@
         </p>
 
     </form>
-
+</div>
   </body>
 </html>
