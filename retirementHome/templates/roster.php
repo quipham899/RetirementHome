@@ -1,14 +1,15 @@
 <?php
-include '../PHPFiles/Doc.php'
+include '../PHPFiles/rosterView.PHP'
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title> Doctor's Appointments</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <title></title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
     <script type='text/javascript'>window.onload=function(){
       const patient = document.getElementById('patientId');
       document.getElementById('date').addEventListener('change', function(){
@@ -51,27 +52,7 @@ include '../PHPFiles/Doc.php'
   }
     </script>
   </head>
-
   <body>
 
-    <form action="docApp.php" method="post">
-        <p>
-            <label for="patient">Patient Id:</label>
-            <input type="text" name="patient" id="patientId" />
-        </p>
-        <p>
-            <label for="date">Date:</label>
-            <input type="date" name="date" id="date">
-        </p>
-        <select name='doctor' id='doctor'>
-        </select>
-        <p>
-            <label for="patientName">Patient Name:</label>
-            <text id='patient'></text>
-        </p>
-        <input type="submit" name="ok" id="ok">
-          <a class="buttons" href=" ">Cancel</a>
-
-    </form>
   </body>
 </html>

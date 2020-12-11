@@ -1,17 +1,42 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title> Login Page</title>
-    <link href = "styles.css" rel= "stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <script type='text/javascript'>window.onload=function(){
+      const patient = document.getElementById('patientId');
+      patient.addEventListener('change', function(){
+        var input = this.value;
+        var name = document.getElementById('patientName');
+        $.ajax({
+              url:"../PHPFiles/Doc.php",    //the page containing php script
+              type: "post",    //request type,
+              dataType: 'json',
+              data: {patientNum: input},
+              success:function(result){
+                if(result != null) {
+                document.getElementById('patientName').innerHTML = '';
+                console.log(result)
+                document.getElementById('patientName').appendChild(document.createTextNode(result[3]));
+                document.getElementById('patientName').appendChild(document.createTextNode(result[4]));
+              }
+          }
+        });
+      });
+    }
+    </script>
   </head>
 
   <body>
 
-    <form action="form.php" method="post">
+    <form action='../PHPFiles/AddInfo.php' method="post">
         <p>
             <label for="patientId">Patient Id:</label>
-            <input type="text" name="patient" id="patientId">
+            <input type="text" name="patientId" id="patientId">
         </p>
         <p>
             <label for="group">Group:</label>
@@ -19,14 +44,14 @@
         </p>
         <p>
             <label for="admissionDate">Admission Date:</label>
-            <input type="text" name="admissionDate" id="admissionDate">
+            <input type="date" name="admissionDate" id="admissionDate">
         </p>
         <p>
             <label for="patientName">Patient Name:</label>
-            <input type="text" name="patientName" id="patientName">
+            <text id='patientName'></text>
         </p>
-        <a class="buttons" href=" ">Ok</a>
-          <a class="buttons" href=" ">Cancel</a>
+        <input type="Submit" name="InfoSubmit" />
+        <a class="buttons" href=" ">Cancel</a>
 
     </form>
 
