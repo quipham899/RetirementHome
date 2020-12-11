@@ -13,6 +13,8 @@ if ($link === false) {
 
 
 $sql = "SELECT Accounts.firstName, Accounts.lastName, Accounts.role, Accounts.id, Accounts.approved,Role.roleName,Role.accessLevel FROM Accounts LEFT JOIN Role on Accounts.role=Role.accessLevel WHERE Accounts.approved = 'False' ";
+$result = mysqli_query($link, $sql);
+$row = mysqli_fetch_array($result);
 if(isset($_POST['regApprove']) and isset($_POST['userValue'])){
 $id = $_POST['userValue'];
 foreach($id as $var){

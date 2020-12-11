@@ -17,6 +17,8 @@ $id = $_SESSION['patientID'];
 $date = date("Y-m-d");
 $search = "SELECT Appointment.Appointments, Appointment.Comment, Appointment.PatientID, Medication.PatientID, Medication.MornMed,Medication.AfternoonMed,Medication.NightMed FROM Appointment LEFT JOIN Medication ON Appointment.PatientID=Medication.PatientID WHERE Appointment.PatientID='$id'";
 $last = "SELECT MAX(Appointments) FROM Appointment WHERE PatientID='$id' AND id = '$myId'";
+$pull = mysqli_query($link,$last);
+$get = mysqli_fetch_array($pull);
 if(isset($_POST['MedOk'])){
   $Comment = $_POST['Comment'];
   $Morn = $_POST['MornMed'];

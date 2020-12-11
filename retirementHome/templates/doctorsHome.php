@@ -10,9 +10,8 @@ include '../PHPFiles/DocHome.php'
 
     <title>Doctor's Home</title>
 
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:400,400i,700" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
   </head>
 
@@ -32,9 +31,13 @@ include '../PHPFiles/DocHome.php'
       $result = mysqli_query($link,$sql);
       while($row = mysqli_fetch_array($result)){
         echo "<tr>";
-        echo "<td>" . $row['firstName'], $row['lastName'] . "</td>";
+        echo "<td>" . $row['firstName'].  " " .$row['lastName'] . "</td>";
         echo "<td>" . $row['Appointments'] . "</td>";
+        if(isset($row['comment'])){
         echo "<td>" . $row['Comment']. "</td>";
+      } else{
+        echo "<td> None </td>";
+      }
         if(!empty($row['MorMed'])){
         echo "<td>" . $row['MornMed'] . "</td>";
       } else{
@@ -70,8 +73,10 @@ include '../PHPFiles/DocHome.php'
         if(!empty($get)){
           $data = mysqli_query($link,$get);
           while($record = mysqli_fetch_array($data)){
+            echo "<tr>";
             echo "<td>" . $record['firstName'], $record['lastName'] . "</td>";
             echo "<td>" . $record['Appointments'] . "</td>";
+            echo "</tr>";
           }
         }
         ?>

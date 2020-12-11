@@ -9,9 +9,8 @@ include '../PHPFiles/RegApproval.php'
 
      <title>Home Page</title>
 
-     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" type="text/css" />
-     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:400,400i,700" />
-     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" type="text/css" />
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
    </head>
 
@@ -25,9 +24,7 @@ include '../PHPFiles/RegApproval.php'
            <th>Check</th>
          </tr>
          <?php
-         if ($result = mysqli_query($link, $sql)) {
-           print_r($result);
-             if (!$result || mysqli_num_rows($result) > 0) {
+         if(isset($sql)){
                while($row = mysqli_fetch_array($result)){
                  echo "<tr>";
                  echo "<th>". $row['firstName'], $row['lastName']."</th>";
@@ -35,11 +32,7 @@ include '../PHPFiles/RegApproval.php'
                  echo "<th><input type='checkbox' name='userValue[]' value='{$row["id"]}'></th>";
                  echo "</tr>";
                }
-
-             } else {
-               echo "Didn't work bro";
-             }
-           }
+         }
          ?>
        </table>
          <input type="submit" name="regApprove" id="register">

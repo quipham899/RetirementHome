@@ -36,7 +36,7 @@ INSERT INTO `Accounts`(email,password,firstName,lastName,phone,role,DOB,approved
 ('weinguy@gmail.com','gsnjdgoishgio','Wei','Nguy','8886579090','F','1995-11-20','True'), ('quyen3279@gmail.com','gsnjdgoishgio','Quyen','Pham','8886579646','D','1995-11-30','True'),
 ('mo@gmail.com','gsnjdgoishgio','Mo','Bamba','88865756876','D','1995-01-15','True'), ('NANO@gmail.com','gsnjdgoishgio','Nano','Banda','88865756876','B','1995-02-20','True'),
 ('mojiao@gmail.com','gsnjdgoishgio','Ba','NANO','888657545676','D','1995-05-20','True'),('mojang@gmail.com','gsnjdgoishgio','Jiang','Yu','888657545676','B','1995-05-20','False'),
-('quanzhen@gmail.com','gsnjdgoishgio','Liu','Bang','888657545676','B','1995-05-20','False');
+('quanzhen@gmail.com','gsnjdgoishgio','Liu','Bang','888657545676','B','1995-05-20','False'),('genecel@gmail.com','gsnjdgoishgio','Gene','Cel','888657545676','C','1995-05-20','True');
 CREATE TABLE `Salary` (
   `salaryID` bigint references Accounts(id),
   `salary` bigint(50) NOT NULL
@@ -53,8 +53,9 @@ CREATE TABLE `Patient` (
   `Debt` bigint,
   `updateDate` DATE
 );
-INSERT INTO `Patient`(id,FamilyCode,EmergencyContact,Relation,GroupName,AdmissionDate,Debt,updateDate) VALUES('1','505','4894958884','Side-GF','C','2020-11-16','900','2020-10-20'),
-('2','666','4894958884','Dark master','C','2020-11-26','150','2020-11-20'),('4','999','4894958884','Daddy','C','2020-01-16','200','2020-11-20');
+INSERT INTO `Patient`(id,FamilyCode,EmergencyContact,Relation,GroupName,AdmissionDate,Debt,updateDate) VALUES('1','505','4894958884','Side-GF','C','2020-11-16','900',CURDATE()),
+('2','666','4894958884','Dark master','C','2020-11-26','150',CURDATE()),('4','999','4894958884','Daddy','C','2020-01-16','200',CURDATE()),('4','999','4894958884','Daddy','C','2020-01-16','200','2020-12-09'),
+('2','666','4894958884','Dark master','C','2020-11-26','150','2020-12-09');
 
 CREATE TABLE `Appointment` (
   `id` bigint REFERENCES Accounts(id) ON DELETE CASCADE,
@@ -86,6 +87,8 @@ CREATE TABLE `Schedule`(
   `Lunch` Text NOT NULL,
   `Dinner` TEXT NOT NULL
 );
+INSERT INTO `Schedule`(RecordDate,careID,patientID,MornMed,AfterMed,NightMed,Breakfast,Lunch,Dinner) VALUES(CURDATE(),5,1,"True","True","False","True","False","True"),
+("2020-12-09",6,2,"True","True","False","True","False","True"),("2020-12-09",8,4,"True","True","False","True","False","True");
 CREATE TABLE `Roster`(
   `rotationDate` DATE,
   `groupName` TEXT REFERENCES Patient(GroupName),
@@ -96,3 +99,5 @@ CREATE TABLE `Roster`(
   `caregiver3` bigint NOT NULL,
   `caregiver4` bigint NOT NULL
 );
+INSERT INTO `Roster`(rotationDate,groupName,supervisor,doctor,caregiver1,caregiver2,caregiver3,caregiver4)VALUES
+(CURDATE(),'C',9,11,,5,6,8,5);

@@ -9,9 +9,8 @@ include '../PHPFiles/AdminReport.php'
 
     <title>Admin's Report</title>
 
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato:400,400i,700" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
   </head>
 
@@ -36,26 +35,32 @@ include '../PHPFiles/AdminReport.php'
                 <th>Dinner</th>
               </tr>
               <?php
-              if(isset($doctorQuery)){
-                $pull = mysqli_query($link, $doctorQuery);
-                while($pullInfo = mysqli_fetch_array($pull)){
-                  echo "<tr>";
-                  if(isset($pullInfo['firstName'])){
-                    echo "<tr>";
-                    echo "<th>" . $pullInfo['firstName'], $pullInfo['lastName']. "</th>";
-                  } else{
-                    echo "<th>None</th>";
-                  }
-                  if(isset($pullInfo['complete'])){
-                    echo "<th> Completed </th>";
-                  } else{
-                    echo "<th>None</th>";
-                  }
-                }
-              }
               if(isset($query)){
                 $row = mysqli_query($link, $query);
                 while($get = mysqli_fetch_array($row)){
+                  if(isset($doctorQuery)){
+                    $pull = mysqli_query($link, $doctorQuery);
+                    if(!empty($pullInfo = mysqli_fetch_array($pull))){
+                    while($pullInfo = mysqli_fetch_array($pull)){
+                      echo "<tr>";
+                      if(isset($pullInfo['firstName'])){
+                        echo "<tr>";
+                        echo "<th>" . $pullInfo['firstName'], $pullInfo['lastName']. "</th>";
+                      } else{
+                        echo "<th>None</th>";
+                      }
+                      if(isset($pullInfo['complete'])){
+                        echo "<th> Completed </th>";
+                      } else{
+                        echo "<th>None</th>";
+                      }
+                    }
+                  } else{
+                    echo "<tr>";
+                    echo"<th> None </th>";
+                    echo"<th> None </th>";
+                  }
+                  }
                   echo "<th>" . $get['firstName'], $get['lastName'] . "</th>";
                   if(isset($get['MornMed']) and $get['MornMed'] != 'False') {
                   echo "<th> Completed</th>";
